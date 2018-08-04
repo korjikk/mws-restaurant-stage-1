@@ -68,7 +68,7 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
 }
 
 /**
- * Initialize leaflet map, called from HTML.
+ * Initialize Google map
  */
 window.initMap = () => {
   let loc = {
@@ -139,9 +139,11 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
+  li.className = 'col-12 col-xs-12 col-sm-6 col-md-6 col-lg-4 mx-auto';
 
   const image = document.createElement('img');
-  image.className = 'restaurant-img';
+  image.className = 'restaurant-img img-fluid';
+  image.alt = restaurant.name+' restaurant, '+restaurant.neighborhood;
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   li.append(image);
 
